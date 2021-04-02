@@ -1,22 +1,35 @@
-<!DOCTYPE>
-<html>
-<head>
-<title>
-This is it
-</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+Results
+{% endblock title %}
+{% block content %}
 
-  <h1>
-
-    <img src="{{ url_for('show_data',filename=data) }}">
-
-  </h1>
-</body>
-
-</html>
+<div class="container">
+  <p style="border: 10px;margin: 5px;">
+    <div>
+      <pre  style="border: 5px;margin: 5px;" >
+        <h2>
+          Images uploaded for the prediction
+        </h2>
+      </pre>
+      
+  <div>
+    <img src='/loaddata_values'>
+  </div>
+  </div>
+</p>
+<p style="border: 10px;margin: 5px;">
+<div>
+  <pre  style="border: 5px;margin: 5px;" >
+  <h2>Results:</h2>
+</pre>
+</div>
+  {% for key,value in data.items() %}
+  <ul>
+    <li>{{ key }} - {{ value }}</li>
+  </ul>
+  {% endfor %}
+  <!--<img src="{{ data }}">-->
+</p>
+</div>
+{% endblock %}
